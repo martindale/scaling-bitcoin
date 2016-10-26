@@ -1,0 +1,192 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>How Bitcoin's Blockchain Changes Everything</title>
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/elements.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <img class="small plain" src="img/bitcoin-icon-wreath.png" />
+          <h4 style="margin-bottom: -0.3em;"><small>How</small></h4>
+          <h2>Bitcoin's Blockchain</h2>
+          <h2 style="margin: -0.2em 0;"><small>changes</small></h2>
+          <h1 style="margin-top: -0.3em;">Everything</h1>
+
+          <h3 style="margin-top: 2em;"><small>Eric Martindale &bull; All Things Open &bull; October. 27<sup>th</sup>, 2016</small></h3>
+        </section>
+        
+        <section>
+          <h1>Trust</h1>
+          
+          <section></section>
+
+          <section>
+            <h3>Our entire system depends on it.</h3>
+          </section>
+
+          <section>
+            <h3>through network design</h3>
+            <h4>we seek to reduce or eliminate</h4>
+            <h3>Central points of failure.</h3>
+          </section>
+          <section>
+            <img src="img/topologies-white.png" class="medium plain" style="margin-top: 2em;" />
+            <p class="fragment">in finance, we call this <strong>counterparty risk</strong>.</p>
+          </section>
+
+        </section>
+        
+        <section>
+          <section>
+            <h1>2008</h1>
+            <h2><span class="fragment">election</span> &nbsp; &nbsp; <span class="fragment">crisis</span> &nbsp; &nbsp; <span class="fragment">bailout</span></h2>
+          </section>
+        </section>
+        
+        <section>
+          <h1>Bitcoin</h1>
+
+          <section></section>
+
+          <section style="margin-top: 2em;">
+            <h2>The General Idea</h2>
+            <p style="width: 70%; margin-left: auto; margin-right: auto; margin-top: 2em;" class="fragment">Bitcoin's blockchain is an immutable, distributed database, upon which an <strong><u>Internet of Commerce</u></strong> is being built.</p>
+            <p style="width: 60%; margin-left: auto; margin-right: auto; margin-top: 2em;" class="fragment">Bitcoin's value reflects trust in the <strong>relative security</strong> of this database.</p>
+          </section>
+          
+          <section>
+            <h2>How does it work?</h2>
+
+            <ol>
+              <li class="fragment" style="margin-bottom: 1em;">the "block chain" data structure</li>
+              <li class="fragment" style="margin-bottom: 1em;">an economic incentive for security</li>
+              <li class="fragment" style="margin-bottom: 1em;">non-forgeable proof of work</li>
+            </ol>
+          </section>
+
+        </section>
+
+        <section>
+          <h1>Blockchains</h1>
+          
+          <section></section>
+
+          <section>
+            <blockquote style="padding: 1em;">The <strong>block chain</strong> is a tree shaped structure starting with the genesis block at the root, with each block potentially having multiple candidates to be the next block.
+              <div class="fragment" style="text-align: right; margin-top: 1em;"><small> — <cite>Satoshi Nakamoto, Bitcoin Source Code, Version 0.1.0</cite></small></div>
+            </blockquote>
+          </section>
+
+          <section>
+            <h3>simple data structures</h3>
+            <h4 class="fragment">Generally speaking:</h4>
+            <h3 class="fragment">slow &amp; inefficient <span style="color: red;">&#10007;</span></h3>
+            <h3 class="fragment">great at keeping history  <span style="color: green; font-weight: bold;">&#10003;</span></h3>
+          </section>
+        </section>
+        
+        <section>
+          <h2>Changing Models of Trust</h2>
+          
+          <section></section>
+          
+          <section>
+            <h3>...is a complex field of study.</h3>
+            
+            <ul>
+              <li class="fragment">in <strong>finance</strong>,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; we call it <strong>counterparty risk</strong>.</li>
+              <li class="fragment">in <strong>economics</strong>,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; we call it <strong>the central planning problem</strong>.</li>
+              <li class="fragment">in <strong>computer science</strong>,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; we call it <strong>the Byzantine General's Problem</strong>.</li>
+            </ul>
+          </section>
+
+        </section>
+
+        <section>
+          <h2>How does Bitcoin solve this problem?</h2>
+        </section>
+        
+        <section>
+          <h2>Bitcoin re-aligns trust.</h2>
+        </section>
+
+        <section>
+          <section>
+            <h3>The Bitcoin network</h3>
+            <p>has been functional for</p>
+            <h1 data-bind="bitcoinDowntime"></h1>
+            <p>of the time since January 3rd, 2009.</p>
+            <p><small>(Bitcoin's genesis block: Jan 3 2009 02:54:25 GMT)</small></p>
+            <p><small>includes <a href="http://vincesamios.com/bitcoins/accidental-hardfork-the-resilience-of-a-fledgling-bitcoin">6&#8531; hours of downtime on 2013-03-12.</a></small></p>
+          </section>
+        </section>
+
+        <section>
+          <img src="img/blockstream-logo.png" class="medium plain" style="margin-bottom: -0.5em" />
+          <p><strong>We solve problems that undermine<br />trust in today's financial systems.</strong></p>
+          <p style="margin-top: 1em;"><a href="https://www.blockstream.com/"><code>www.blockstream.com</code></a></p>
+          <h4 style="margin-top: 2em; text-transform: lowercase">eric@blockstream.com &bull; @martindale</h4>
+        </section>
+      </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+      // More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        history: true,
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+          { src: 'plugin/markdown/marked.js' },
+          { src: 'plugin/markdown/markdown.js' },
+          { src: 'plugin/notes/notes.js', async: true },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        ]
+      });
+
+      function update() {
+        var timenow = new Date().getTime() / 1000;
+        //current time in seconds from the unix epoch start
+
+        var downtime= (6*60*60+20*60);
+        //6:20 of downtime on 3/12/2013
+        //converted to seconds
+        //source: http://vincesamios.com/bitcoins/accidental-hardfork-the-resilience-of-a-fledgling-bitcoin
+
+        var totaltime = timenow - 1230951265;
+        //where 1230951265 is the number of seconds since the unix epoch start at the time of the first block on Jan 3 2009 02:54:25 GMT
+
+        var uptime = 100*(totaltime-downtime)/totaltime;
+        var printme = uptime.toFixed(11).toString().concat(" %");
+
+        document.querySelector('*[data-bind="bitcoinDowntime"]').innerHTML = printme;
+      }
+
+      update();
+
+      setInterval(update, 200);
+    </script>
+  </body>
+</html>

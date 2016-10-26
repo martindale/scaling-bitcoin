@@ -1,0 +1,528 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Scaling Bitcoin and the Blockchain</title>
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/elements.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1>Scaling Bitcoin</h1>
+          <h4 style="margin: -0.5em;"><small>and</small></h4>
+          <h1 style="margin-top: -0.25em; margin-bottom: 1em;">the Blockchain</h1>
+          <h3 style="margin-top: 0em;">the social, economic, and technological roads ahead</h3>
+
+          <h3 style="margin-top: 2em;"><small>Eric Martindale &bull; All Things Open &bull; October. 26<sup>th</sup>, 2016</small></h3>
+        </section>
+        
+        <section>
+          <section>
+            <img src="img/martindale.jpg" class="rounded small inline" />
+            <h3>Eric Martindale</h3>
+            <h4>eric@blockstream.com &bull; <a href="https://twitter.com/martindale" rel="me">@martindale</a></h4>
+            <h5 style="text-transform: lowercase;">Presentation &amp; Source Code Available</h5>
+            <h6 style="text-transform: lowercase; font-size: 0.7em;"><a href="https://martindale.github.io/scaling-bitcoin"><code>martindale.github.io/scaling-bitcoin</code></a></h6>
+          </section>
+          
+          <section>
+            <img src="img/blockstream-logo.png" class="large plain" />
+          </section>
+          
+          <section>
+            <h3>Some Things I've Worked On</h3>
+            <ul>
+              <li class="fragment">decentralized education <!-- <span class="fragment">(Coursefork, now Trinket)</span> --></li>
+              <li class="fragment">collaborative writing platforms <!-- <span class="fragment">(Quill)</span> --></li>
+              <li class="fragment">augmented reality <!-- <span class="fragment">(Mirascape)</span> --></li>
+              <li class="fragment">computer vision <!-- <span class="fragment">(Neogence)</span> --></li>
+              <li class="fragment">machine learning <!-- <span class="fragment">(LocalSense)</span> --></li>
+              <li class="fragment">predictive intelligence <!-- <span class="fragment">(LocalSense)</span> --></li>
+            </ul>
+          </section>
+          
+          <section>
+            <h3>Names of the Projects</h3>
+            <ul>
+              <li class="fragment">Trinket (formerly Coursefork)</li>
+              <li class="fragment">Quill (formerly RolePlayGateway)</li>
+              <li class="fragment">Neogence</li>
+              <li class="fragment">Mirascape</li>
+              <li class="fragment">LocalSense</li>
+              <li class="fragment">SenseMaker</li>
+            </ul>
+          </section>
+        </section>
+        
+        <section>
+          <h4>What We're Going To Talk About</h4>
+          <section></section>
+          
+          <section>
+            <h1>Scaling Bitcoin</h1>
+            <h3 class="fragment">(no, really!)</h3>
+          </section>
+            
+          <section>
+            <ol>
+              <li>Bitcoin as a shared resource</li>
+              <li>How Bitcoin works today</li>
+              <li>What's possible</li>
+              <li>How to get there</li>
+            </ol>
+          </section>
+        </section>
+        
+        <section>
+          <h4>The most important thing</h4>
+          
+          <h2 class="fragment">Bitcoin is people-powered.</h2>
+          
+          <p class="fragment"><strong>Let's focus on treating one another better.</strong></p>
+          <p class="fragment" style="width: 70%; margin-left: auto; margin-right: auto;">No one wants to work in an environment like this.  <em>Especially</em> not newcomers.</p>
+          <p class="fragment">We need them to scale!</p>
+        </section>
+        
+        <section>
+          <h2>What is Bitcoin?</h2>
+          <section></section>
+          
+          <section>
+            <h3>Digital Cash</h3>
+            <ul style="width: 70%; margin-left: auto; margin-right: auto;">
+              <li class="fragment">David Chaum, "Blind signatures for untraceable payments", 1982 <span class="fragment">(became DigiCash in 1990)</span></li>
+              <li class="fragment">Adam Back, Hashcash, 1997</li>
+              <li class="fragment">Wei Dai, B-Money, 1998</li>
+              <li class="fragment">Satoshi Nakamoto, Bitcoin, 2008</li>
+            </ul>
+          </section>
+          
+          <section>
+            <h3>Digital <em>everything</em>.</h3>
+          </section>
+          
+          <section>
+            <h3>Code As Law</h3>
+          </section>
+          
+        </section>
+        
+        <section>
+          <h2>Where We Came From</h2>
+          
+          <section></section>
+          
+          <section>
+            <img src="img/bitcoin-all-time-high-2013.png" class="large plain" />
+          </section>
+          
+          <section>
+            <h3>Cypherpunks</h3>
+            
+            <p class="fragment">value <strong>privacy</strong> over all else</p>
+            
+            
+            <blockquote class="fragment">Privacy is necessary for an open society in the electronic age.</blockquote>
+            <blockquote class="fragment">Privacy is not secrecy.</blockquote>
+            <blockquote class="fragment">Privacy is the power to selectively reveal oneself to the world.</blockquote>
+            
+            <p class="fragment" style="font-size: 0.7em;">&mdash; "A Cypherpunk's Manifesto", Eric Hughes, 1993</p>
+            
+          </section>
+        </section>
+        
+        <section>
+          <h2>How It Works</h2>
+          
+          <section></section>
+          
+          <section><h3>Bitcoin is a simple idea</h3></section>
+          
+          <section>
+            <h3 class="fragment">Developers Write The Code</h3>
+            <h3 class="fragment">Users Choose To Run The Code</h3>
+            <h3 class="fragment">Computers Execute It Faithfully</h3>  
+          </section>
+        </section>
+        
+        <section>
+          <h1>Trust</h1>
+          
+          <section></section>
+
+          <section>
+            <h3>Our entire system depends on it.</h3>
+          </section>
+
+          <section>
+            <h3>through network design</h3>
+            <h4>we seek to reduce or eliminate</h4>
+            <h3>Central points of failure.</h3>
+          </section>
+
+          <section>
+            <img src="img/topologies-white.png" class="medium plain" style="margin-top: 2em;" />
+            <p class="fragment">in finance, we call this <strong>counterparty risk</strong>.</p>
+          </section>
+
+        </section>
+        
+        <section>
+          <h2>Changing Models of Trust</h2>
+          
+          <section></section>
+          
+          <section>
+            <h3>...is a complex field of study.</h3>
+            
+            <ul>
+              <li class="fragment">in <strong>finance</strong>,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; we call it <strong>counterparty risk</strong>.</li>
+              <li class="fragment">in <strong>economics</strong>,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; we call it <strong>the central planning problem</strong>.</li>
+              <li class="fragment">in <strong>computer science</strong>,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; we call it <strong>the Byzantine General's Problem</strong>.</li>
+            </ul>
+          </section>
+
+        </section>
+        
+        <section>
+          <h2>Where Are We</h2>
+          <section></section>
+          
+          <section>
+            <h3>Blockchain-mania</h3>
+          </section>
+          <section>
+            <h3>Smart Contracts</h3>
+          </section>
+          
+          <section>
+            <h3>"The Block Size Debate"</h3>
+          </section>
+          
+          <section>
+            
+            <!-- <script type="text/javascript" src="https://ssl.gstatic.com/trends_nrtr/760_RC08/embed_loader.js"></script>
+            <script type="text/javascript">
+              trends.embed.renderExploreWidget("TIMESERIES", {
+                "comparisonItem": [
+                  {"keyword":"bitcoin","geo":"","time":"2010-09-23 2016-10-23"},
+                  {"keyword":"blockchain","geo":"","time":"2010-09-23 2016-10-23"}
+                ],
+                "category": 0,
+                "property": ""
+              }, {
+                "exploreQuery": "date=2010-09-23%202016-10-23&q=bitcoin,blockchain"
+              });
+            </script>
+            <style type="text/css">
+              #trends-widget-1 {
+                height: 300px;
+              }
+            </style> -->
+          </section>
+        </section>
+        
+        <section>
+          <h2>Where We're Going</h2>
+          
+          <section></section>
+          
+          <section>
+            <h3>Crypto-utopia?</h3>
+            
+            <ul>
+              <li class="fragment">Reduction in Coercion, Oppression</li>
+              <li class="fragment">Money as Free Speech<span class="fragment"><br />&nbsp;&nbsp;&nbsp;&nbsp;Buckley v. Valeo, 1976</span></li>
+              <li class="fragment">Bitcoin as an Emergent Organism<span class="fragment"><br />&nbsp;&nbsp;&nbsp;&nbsp;What is our role?</span></li>
+            </ul>
+          </section>
+        </section>
+        
+        <section>
+          <h2>Challenges Ahead</h2>
+          
+          <section></section>
+          
+          <section>
+            <h3>Paradigm Shift</h3>
+            <p class="fragment">Without <strong>transparency</strong>, we must <strong>trust</strong>.</p>
+            <p class="fragment">We didn't have the technology then, <strong>but we do now</strong>!</p>
+            <p class="fragment">Change is hard.  Momentum is powerful.</p>
+          </section>
+          
+          <section>
+            <h3>Social Responsibility</h3>
+            <p class="fragment">A rising tide lifts all boats.</p>
+            <p class="fragment">Resilience emerges from diversity.</p>
+            <p class="fragment">A strong society is a diverse one.</p>
+          </section>
+        </section>
+        
+        <section>
+          <h2>Some Ideas</h2>
+          
+          <section></section>
+          
+          <section>
+            <ul>
+              <li class="fragment">
+                <strong>Work together.</strong>
+                <ol>
+                  <li class="fragment">Extend the ecosystem.</li>
+                  <li class="fragment">More than just the blockchain!</li>
+                </ol>
+              </li>
+              <li class="fragment">Invest in the code.<span class="fragment"><br />&nbsp;&nbsp;&nbsp;&nbsp;This means the people who write it!</span></li>
+              <li class="fragment">Increase the block size?</li>
+            </ul>
+          </section>
+        </section>
+        
+        <section>
+          <h2>Thank You!</h2>
+          
+          <h3>@martindale &middot; @blockstream</h3>
+          <h4><code>elementsproject.org</code></h4>
+        </section>
+        
+        
+        <!-- DO NOT DELETE CONTENT BELOW -->
+        
+        <section>
+          <section>
+            <h3 class="fragment" data-fragment-index="2">Bitcoin</h3>
+            <img src="img/bitcoin-icon.png" class="medium plain" data-fragment-index="1" />
+            <p class="fragment" data-fragment-index="3">the most well-tested, battle-hardened blockchain</p>
+          </section>
+          <section>
+            <h3>The Bitcoin network</h3>
+            <p>has been functional for</p>
+            <h1 data-bind="bitcoinDowntime"></h1>
+            <p>of the time since January 3rd, 2009.</p>
+            <p><small>(Bitcoin's genesis block: Jan 3 2009 02:54:25 GMT)</small></p>
+            <p><small>includes <a href="http://vincesamios.com/bitcoins/accidental-hardfork-the-resilience-of-a-fledgling-bitcoin">6&#8531; hours of downtime on 2013-03-12.</a></small></p>
+          </section>
+          <section>
+            <h3>Building a blockchain?</h3>
+            <h2 class="fragment">Use Bitcoin's codebase.</h2>
+            <h4 class="fragment">(seriously.  don't re-invent the wheel!)</h4>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h3>Elements</h3>
+            <p class="fragment">are composable components<br /><span class="fragment"> that <strong>extend the Bitcoin codebase</strong>.</span></p>
+            <p class="fragment">They transform Bitcoin's features<span class="fragment"><br />into <strong>domain-specific solutions</strong>.</span></p>
+            <img src="img/confidential-transactions.svg" class="small plain block fragment" />
+            <img src="img/time-lock.svg" class="small plain block fragment" />
+            <img src="img/deterministic-pegs.svg" class="small plain block fragment" />
+          </section>
+        </section>
+        <section>
+          <section>
+            <h3>Sidechains</h3>
+            <p class="fragment">are bundles of Elements<span class="fragment"><br />deployed as a blockchain</span><span class="fragment"><br />on the Bitcoin network.</span></p>
+          </section>
+          <section>
+            <h3>Sidechain Ecosystems</h3>
+            <div class="sidechains" style="position: relative; left: 1.5em; top: 1.5em;">
+              <div style="position: relative; left: 1em;" class="fragment" data-fragment-index="1">
+                <span style="position: absolute; top: 4.5em; left: 2.8em;">Blockchain<br/><span style="font-size: 0.8em;">(Bitcoin)</span></span>
+                <img src="img/1.svg" class="medium plain spin" />
+              </div>
+              <div style="position: relative; margin-left: -2.1em;" class="fragment" data-fragment-index="2">
+                <span style="position: absolute; top: 6em; left: 4em; font-size: 0.8em;">Sidechain<sub class="fragment" style="font-size: 0.8em;" data-fragment-index="3">a</sub></span>
+                <img src="img/2.svg" class="medium plain backspin" />
+              </div>
+              <div style="position: relative; margin-left: -7.5em; top: 4em;" class="fragment">
+                <span style="position: absolute; top: 6.7em; left: 4.8em; font-size: 0.7em;">Sidechain<sub style="font-size: 0.8em;">a<sub style="font-size: 0.8em;">1</sub></sub></span>
+                <img src="img/3.svg" class="medium plain spin" />
+              </div>
+              <div style="position: relative; left: -4.3em; top: -14.5em;" class="fragment" data-fragment-index="4">
+                <span style="position: absolute; top: 8em; left: 6em; font-size: 0.6em;">Sidechain<sub style="font-size: 0.8em;">b</sub></span>
+                <img src="img/4.svg" class="medium plain backspin" />
+              </div>
+              <div style="position: relative; top: -14em;" class="fragment">
+                <span style="position: absolute; top: 11.2em; left: 10.1em; height: 2em; padding-top: 1em; font-size: 0.4em; z-index: 50; background: #222;">Sidechain<sub style="font-size: 0.8em;">a<sub style="font-size: 0.8em;">2</sub></sub></span>
+                <img src="img/5.svg" class="medium plain spin" />
+              </div>
+            </div>
+          </section>
+          <section>
+            <h3>Reasons to use Sidechains</h3>
+            <ul>
+              <li><strong>Network Upgrades</strong>, without service disruption</li>
+              <li><strong>Experiments</strong>, with reversible outcomes</li>
+              <li><strong>Beta releases</strong>, for optional improvements</li>
+              <li>...what else can you imagine?</li>
+            </ul>
+          </section>
+          <!-- <section>
+            <h3>Implications</h3>
+            <p class="fragment">Sidechains on sidechains.<br /><span class="fragment">Sidechains all the way down.</span></p>
+          </section> -->
+        </section>
+        <section>
+          <h2>Elements Alpha</h2>
+          <section></section>
+          <section>
+            <h5>is a</h5>
+            <h3>Public Sidechain</h3>
+            <h4 class="fragment">pegged to Bitcoin's <code>testnet</code> blockchain</h4>
+            <h4 class="fragment">Launched on June 1st, 2015</h4>
+            <h2 class="fragment" style="font-size: 3em; margin-top: 1em;">🎆🎂🎆</h2>
+          </section>
+          <section>
+            <h3 style="margin-top: 1em;">Segregated Witness</h3>
+            <img src="img/segregated-witness.svg" class="small plain fragment" />
+            <ul class="fragment">
+              <li>2015, Q2: first prototype built in Elements</li>
+              <li>2015, June: deployed to the Alpha sidechain</li>
+              <li>2015, December: proposed to the Bitcoin community at the Scaling Bitcoin conference in Hong Kong (BIP 141)</li>
+              <li>2016, June 6th: accepted into Bitcoin Core (PR #8149)</li>
+            </ul>
+          </section>
+          <section>
+              <h3 style="margin-top: 1em;"><code>OP_CHECKSEQUENCEVERIFY</code></h3>
+              <img src="img/time-lock.svg" class="small plain fragment" />
+              <ul class="fragment">
+                <li>2015, Q2: first prototype built in Elements</li>
+                <li>2015, June: deployed to the Alpha sidechain</li>
+                <li>2015, Aug.: proposed to Bitcoin community (BIP(s) 68, <strong>112</strong>, 113)</li>
+                <li>2016, Feb. 12th: accepted into Bitcoin Core (PR #7524)</li>
+                <li>Block 419328: activated on <code>mainnet</code>! 💥</li>
+              </ul>
+          </section>
+        </section>
+        <section>
+          <h3>Elements: What's <code style="text-transform: lowercase;">Next</code>?</h3>
+          <section></section>
+          <section>
+            <p style="width: 70%; margin-left: auto; margin-right: auto;"><strong>Elements</strong> may be the largest, most impactful opportunity in front of us.</p>
+          
+            <ol style="margin-top: 1.5em;">
+              <li class="fragment">The cryptofinancial revolution is <em>happening</em>.</li>
+              <li class="fragment">Companies are <em>pivoting</em> to capitalize early.</li>
+              <li class="fragment">We've allowed Elements to <em>languish</em>.</li>
+            </ol>
+            
+            <h4 class="fragment" style="margin-top: 2em;">Let's make <strong>Elements</strong> the <em>de facto</em> solution.</h4>
+          </section>
+          <section style="text-align: left; margin-left: 5em;">
+            <h3>Immediate Needs</h3>
+            <h4>1. Developer Experience</h4>
+            <h4>2. Release Rhythm</h4>
+            <h4>3. Support Expectations</h4>
+          </section>
+          <section>
+            <h4 class="fragment">"Elements Next" is a major update, including changes from both Bitcoin and Liquid.</h4>
+            <h4 class="fragment" style="margin-top: 1em;">Once published, let's keep the pace.</h4>
+          </section>
+          <section>
+            <h3>Developer Experience</h3>
+            <p class="fragment" style="margin-top: 2em;">If we make Elements the easiest technology stack to use, developers will choose it when building new things.</p>
+            <p class="fragment">When that happens, their solutions become dependent on our expertise, presenting an <em>excellent</em> revenue stream.</p>
+          </section>
+          <section>
+            <p>This will require consistent, dedicated effort.</p>
+            <p class="fragment"><strong>We need to build a <em>lot</em> of tooling.</strong></p>
+            <p class="fragment">These tools become the world's new financial backbone.</p>
+          </section>
+          <section>
+            <h3>Productization</h3>
+            <ul style="text-align: left; width: 40%; margin-left: auto; margin-right: auto;">
+              <li><h4 class="fragment">Elements Explorer</h4></li>
+              <li><h4 class="fragment">Elements Wallet</h4></li>
+              <li><h4 class="fragment">Elements Exchange</h4></li>
+              <li><h4 class="fragment">Elements Core</h4></li>
+              <li><h4 class="fragment">Liquid, ...</h4></li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Discussions</h3>
+            <ol>
+              <li>Development Process</li>
+              <li>Community</li>
+              <li>Sample Projects &amp; Tools</li>
+              <li>Productization</li>
+            </ol>
+          </section>
+        </section>
+        <!-- <section>
+          <h4>When we succeed<span class="fragment">,</span></h4>
+          <h3>we will convert</h3>
+          <h3>Every Financial Institution</h3>
+          <h4>into a</h4>
+          <h2>Trust Institution.</h2>
+        </section> -->
+        <section>
+          <p><a href="https://www.elementsproject.org/"><code>www.elementsproject.org</code></a></p>
+          <h2>The Elements Project</h2>
+          <h3>Discussion &amp; Questions</h3>
+          <img src="img/martindale.jpg" class="rounded small inline" />
+          <h4>eric@blockstream.com &bull; @martindale</h4>
+          <h5>Presentation &amp; Source Code Available</h5>
+          <p><a href="https://martindale.github.io/elements-project"><code>martindale.github.io/elements-project</code></a></p>
+        </section>
+      </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+      // More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        history: true,
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+          { src: 'plugin/markdown/marked.js' },
+          { src: 'plugin/markdown/markdown.js' },
+          { src: 'plugin/notes/notes.js', async: true },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        ]
+      });
+
+      function update() {
+        var timenow = new Date().getTime() / 1000;
+        //current time in seconds from the unix epoch start
+
+        var downtime= (6*60*60+20*60);
+        //6:20 of downtime on 3/12/2013
+        //converted to seconds
+        //source: http://vincesamios.com/bitcoins/accidental-hardfork-the-resilience-of-a-fledgling-bitcoin
+
+        var totaltime = timenow - 1230951265;
+        //where 1230951265 is the number of seconds since the unix epoch start at the time of the first block on Jan 3 2009 02:54:25 GMT
+
+        var uptime = 100*(totaltime-downtime)/totaltime;
+        var printme = uptime.toFixed(11).toString().concat(" %");
+
+        document.querySelector('*[data-bind="bitcoinDowntime"]').innerHTML = printme;
+      }
+
+      update();
+
+      setInterval(update, 200);
+    </script>
+  </body>
+</html>
